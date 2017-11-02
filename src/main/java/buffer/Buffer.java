@@ -6,8 +6,8 @@ import java.util.Queue;
 public class Buffer {
   private Queue<Object> data;
   private int capacity;
-  int numPut = 0;
-  int numGet = 0;
+  private int numPut = 0;
+  private int numGet = 0;
 
   /**
    * Constructor
