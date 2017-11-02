@@ -32,8 +32,6 @@ public class Buffer {
       throw new RuntimeException("ERROR: Buffer vacio, no puedo devolver elemento.");
     }
     Object value = data.remove();
-    System.out.println("Element extracted");
-
     numGet++;
     return value;
   }
