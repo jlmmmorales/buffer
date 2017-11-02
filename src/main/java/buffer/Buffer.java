@@ -4,10 +4,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Buffer {
-  private Queue<Object> buffer;
+  private Queue<Object> data;
   private int capacity;
-  int np = 0;
-  int ng = 0;
+  int numPut = 0;
+  int numGet = 0;
 
   /**
    * Constructor
@@ -16,43 +16,43 @@ public class Buffer {
    */
   public Buffer(int bsize) {
     capacity = bsize;
-    buffer = new LinkedList<Object>();
+    data = new LinkedList<Object>();
   }
 
   public void put(Object element) {
-    if (buffer.size() == capacity)
-      System.exit(-1);;
+    if (data.size() == capacity)
+      throw new RuntimeException("ERROR: Buffer lleno, no puede añadir elemento.");
+      //System.exit(-1);
+      //System.out.println("Element inserted");
 
-    System.out.println("Element inserted");
-
-    buffer.add(element);
-    np++;
+    data.add(element);
+    numPut++;
   }
 
   public Object get() throws Exception {
-    if (buffer.isEmpty())
+    if (data.isEmpty())
       throw new Exception();
 
-    Object value = buffer.remove();
+    Object value = data.remove();
     System.out.println("Element extracted");
 
-    ng++;
+    numGet++;
     return value;
   }
 
   public int GetNumberOfElements() {
-    return buffer.size();
+    return data.size();
   }
 
   public int get_number_of_holes() {
-    return capacity - buffer.size();
+    return capacity - data.size();
   }
 
   public int gc() {
     return capacity;
   }
 
-  public double getNumberOfOperations() {
-    return np + ng;
+  public int getNumberOfOperations() {
+    return numPut + numGet;
   }
 }
