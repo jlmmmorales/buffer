@@ -19,20 +19,18 @@ public class Buffer {
     data = new LinkedList<Object>();
   }
 
-  public void put(Object element) {
-    if (data.size() == capacity)
+  public void put(Object element) throws RuntimeException {
+    if (data.size() == capacity) {
       throw new RuntimeException("ERROR: Buffer lleno, no puede añadir elemento.");
-      //System.exit(-1);
-      //System.out.println("Element inserted");
-
+    }
     data.add(element);
     numPut++;
   }
 
-  public Object get() throws Exception {
-    if (data.isEmpty())
-      throw new Exception();
-
+  public Object get() throws RuntimeException {
+    if (data.isEmpty()) {
+      throw new RuntimeException("ERROR: Buffer vacio, no puedo devolver elemento.");
+    }
     Object value = data.remove();
     System.out.println("Element extracted");
 
@@ -40,15 +38,15 @@ public class Buffer {
     return value;
   }
 
-  public int GetNumberOfElements() {
+  public int getNumberOfElements() {
     return data.size();
   }
 
-  public int get_number_of_holes() {
+  public int getNumberOfHoles() {
     return capacity - data.size();
   }
 
-  public int gc() {
+  public int getCapacity() {
     return capacity;
   }
 
