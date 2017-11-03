@@ -1,4 +1,4 @@
-package buffer;
+package prBuffer;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

@@ -1,4 +1,4 @@
-package buffer;
+package prBuffer;
 
 import java.util.LinkedList;
 import java.util.Queue;
