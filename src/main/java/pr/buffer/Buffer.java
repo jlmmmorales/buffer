@@ -8,6 +8,7 @@ public class Buffer<T> {
   private int capacity;
   private int numPut = 0;
   private int numGet = 0;
+  
 
   /**
    * Constructor
@@ -16,7 +17,7 @@ public class Buffer<T> {
    */
   public Buffer(int bsize) {
     capacity = bsize;
-    data = new LinkedList<T>();
+    data = new LinkedList<>();
   }
 
   public void put(T element) throws BufferException {
