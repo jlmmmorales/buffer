@@ -3,8 +3,8 @@ package prBuffer;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Buffer {
-  private Queue<Object> data;
+public class Buffer<T> {
+  private Queue<T> data;
   private int capacity;
   private int numPut = 0;
   private int numGet = 0;
@@ -16,22 +16,22 @@ public class Buffer {
    */
   public Buffer(int bsize) {
     capacity = bsize;
-    data = new LinkedList<Object>();
+    data = new LinkedList<T>();
   }
 
-  public void put(Object element) throws RuntimeException {
+  public void put(T element) throws BufferException {
     if (data.size() == capacity) {
-      throw new RuntimeException("ERROR: Buffer lleno, no puede añadir elemento.");
+      throw new BufferException("ERROR: Buffer lleno, no puede añadir elemento.");
     }
     data.add(element);
     numPut++;
   }
 
-  public Object get() throws RuntimeException {
+  public T get() throws BufferException {
     if (data.isEmpty()) {
-      throw new RuntimeException("ERROR: Buffer vacio, no puedo devolver elemento.");
+      throw new BufferException("ERROR: Buffer vacio, no puedo devolver elemento.");
     }
-    Object value = data.remove();
+    T value = data.remove();
     numGet++;
     return value;
   }
