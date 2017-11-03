@@ -1,4 +1,4 @@
-package prBuffer;
+package pr.buffer;
 
 public class BufferException extends RuntimeException {
 
