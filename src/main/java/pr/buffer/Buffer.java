@@ -62,6 +62,6 @@ public class Buffer<T> {
   }
 
   public int getNumberOfOperations() {
-    return numPut + numGet + 10;
+    return numPut + numGet;
   }
 }
