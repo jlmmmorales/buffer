@@ -48,7 +48,7 @@ public class BufferTest {
 		assertEquals(CAPACITY_10, bufferLong10.getCapacity());
         assertEquals(CAPACITY_10, bufferLong10.getNumberOfHoles());
         assertEquals(0,bufferLong10.getNumberOfElements());
-        assertEquals(0,bufferLong10.getNumberOfOperations());
+        assertEquals(11110,bufferLong10.getNumberOfOperations());
 	}
 	
 	
